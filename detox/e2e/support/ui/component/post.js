@@ -10,13 +10,15 @@ class Post {
         emoji: 'markdown_emoji',
         image: 'markdown_image',
         message: 'markdown_text',
+        postHeaderCommentedOn: 'post_header.commented_on',
         postHeaderDateTime: 'post_header.date_time',
         postHeaderDisplayName: 'post_header.display_name',
         postHeaderGuestTag: 'post_header.guest_tag',
         postHeaderReply: 'post_header.reply',
+        postHeaderReplyCount: 'post_header.reply.count',
         postPreHeaderText: 'post_pre_header.text',
-        showLessButton: 'show_more.button.minus',
-        showMoreButton: 'show_more.button.plus',
+        showLessButton: 'show_more.button.chevron-up',
+        showMoreButton: 'show_more.button.chevron-down',
         table: 'markdown_table',
         tableExpandButton: 'markdown_table.expand.button',
         thematicBreak: 'markdown_thematic_break',
@@ -53,16 +55,20 @@ class Post {
     }
 
     getPostHeader = (postItemMatcher) => {
+        const postItemHeaderCommentedOnMatcher = by.id(this.testID.postHeaderCommentedOn).withAncestor(postItemMatcher);
         const postItemHeaderDateTimeMatcher = by.id(this.testID.postHeaderDateTime).withAncestor(postItemMatcher);
         const postItemHeaderDisplayNameMatcher = by.id(this.testID.postHeaderDisplayName).withAncestor(postItemMatcher);
         const postItemHeaderGuestTagMatcher = by.id(this.testID.postHeaderGuestTag).withAncestor(postItemMatcher);
         const postItemHeaderReplyMatcher = by.id(this.testID.postHeaderReply).withAncestor(postItemMatcher);
+        const postItemHeaderReplyCountMatcher = by.id(this.testID.postHeaderReplyCount).withAncestor(postItemMatcher);
 
         return {
+            postItemHeaderCommentedOn: element(postItemHeaderCommentedOnMatcher),
             postItemHeaderDateTime: element(postItemHeaderDateTimeMatcher),
             postItemHeaderDisplayName: element(postItemHeaderDisplayNameMatcher),
             postItemHeaderGuestTag: element(postItemHeaderGuestTagMatcher),
             postItemHeaderReply: element(postItemHeaderReplyMatcher),
+            postItemHeaderReplyCount: element(postItemHeaderReplyCountMatcher),
         };
     }
 

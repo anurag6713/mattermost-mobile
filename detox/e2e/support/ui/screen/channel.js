@@ -15,7 +15,6 @@ import {
 } from '@support/ui/component';
 import {
     LoginScreen,
-    LongPostScreen,
     SelectServerScreen,
     ThreadScreen,
 } from '@support/ui/screen';
@@ -75,14 +74,6 @@ class ChannelScreen {
 
     getNewMessagesDivider = () => {
         return this.postList.getNewMessagesDivider();
-    }
-
-    getLongPostItem = (postId, text, postProfileOptions = {}) => {
-        return LongPostScreen.getPost(postId, text, postProfileOptions);
-    }
-
-    getLongPostMessage = () => {
-        return LongPostScreen.getPostMessage();
     }
 
     getPostListPostItem = (postId, text, postProfileOptions = {}) => {
@@ -222,6 +213,11 @@ class ChannelScreen {
         await expect(
             this.getLongPostMessage(),
         ).toHaveText(postMessage);
+    }
+
+    hasPostMessage = async (postId, postMessage) => {
+        const {postListPostItem} = this.getPostListPostItem(postId, postMessage);
+        await expect(postListPostItem).toBeVisible();
     }
 
     hasPostMessageAtIndex = async (index, postMessage) => {

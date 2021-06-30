@@ -7,7 +7,7 @@ class PostList {
     constructor(screenPrefix) {
         this.testID = {
             moreMessagesButton: `${screenPrefix}post_list.more_messages_button`,
-            newMessagesDivider: `${screenPrefix}post_list.new_messages_divider`,
+            newMessagesDivider: `${screenPrefix}post_list.new_messages_line`,
             postListPostItem: `${screenPrefix}post_list.post`,
         };
     }
@@ -25,10 +25,12 @@ class PostList {
             postItem,
             postItemBlockQuote,
             postItemEmoji,
+            postItemHeaderCommentedOn,
             postItemHeaderDateTime,
             postItemHeaderDisplayName,
             postItemHeaderGuestTag,
             postItemHeaderReply,
+            postItemHeaderReplyCount,
             postItemImage,
             postItemMessage,
             postItemPreHeaderText,
@@ -45,10 +47,12 @@ class PostList {
             postListPostItem: postItem,
             postListPostItemBlockQuote: postItemBlockQuote,
             postListPostItemEmoji: postItemEmoji,
+            postListPostItemHeaderCommentedOn: postItemHeaderCommentedOn,
             postListPostItemHeaderDateTime: postItemHeaderDateTime,
             postListPostItemHeaderDisplayName: postItemHeaderDisplayName,
             postListPostItemHeaderGuestTag: postItemHeaderGuestTag,
             postListPostItemHeaderReply: postItemHeaderReply,
+            postListPostItemHeaderReplyCount: postItemHeaderReplyCount,
             postListPostItemImage: postItemImage,
             postListPostItemMessage: postItemMessage,
             postListPostItemPreHeaderText: postItemPreHeaderText,
